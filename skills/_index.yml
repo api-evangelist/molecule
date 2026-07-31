@@ -1,0 +1,23 @@
+generated: '2026-07-20'
+method: generated
+source: https://docs.molecule.xyz/api-reference/
+notes: >-
+  Agent Skills generated from the documented Molecule GraphQL API and x402
+  gateway. Molecule also publishes agent tooling in its GitHub org
+  (moleculeprotocol): mol-labs-plugin (MCP tools + skills) and
+  beach-science-skills (OpenClaw skills) — see those repos for provider-native
+  packages.
+provider_published:
+  - repo: https://github.com/moleculeprotocol/mol-labs-plugin
+    description: Molecule Labs agent plugin containing MCP tools and skills.
+  - repo: https://github.com/moleculeprotocol/beach-science-skills
+    description: OpenClaw skills for participating in open scientific research.
+skills:
+  - file: molecule-browse-ip-tokens.md
+    name: Browse IP-NFTs and IP Tokens
+    api: https://production.graphql.api.molecule.xyz/graphql
+    operations: [ipnfts, ipts]
+  - file: molecule-x402-lab-write.md
+    name: Write to a Lab via the x402 pay-per-call gateway
+    api: https://docs.molecule.xyz/api-reference/x402-gateway.md
+    operations: [createAnnouncement, createLab, initiateCreateOrUpdateFile, finishCreateOrUpdateFile]

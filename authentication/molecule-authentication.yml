@@ -1,0 +1,49 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.molecule.xyz/api-reference/api-reference.md
+docs: https://docs.molecule.xyz/api-reference/api-reference.md
+summary:
+  types: [apiKey, http, custom]
+  api_key_in: [header]
+  notes: >-
+    All Molecule GraphQL APIs (Data, Tokenization, Labs) require an API key sent
+    in the x-api-key header. Labs API write mutations additionally require a
+    Service Token in the X-Service-Token header, scoped to a specific lab
+    (dataroom). Service tokens are minted via the generateServiceToken mutation,
+    which bootstraps from a Privy authenticated session or a wallet signature.
+    Autonomous agents without a long-lived service token can instead use the
+    x402 gateway, which mints a short-lived scoped service token after a
+    per-request USDC payment on Base is verified.
+schemes:
+  - name: apiKey
+    type: apiKey
+    in: header
+    parameter_name: x-api-key
+    required_for: [Data API, Tokenization API, Labs API queries, Labs API mutations]
+    obtain: Contact the Molecule team via Discord with a use case.
+    sources: [docs:api-reference/api-reference.md, docs:api-reference/data-api.md]
+  - name: serviceToken
+    type: apiKey
+    in: header
+    parameter_name: X-Service-Token
+    required_for: [Labs API write mutations, "Labs API legalAgreementTemplate query"]
+    minted_by: generateServiceToken mutation (Privy session or wallet signature)
+    scope: Identifies the specific lab/dataroom the caller may write to.
+    sources: [docs:api-reference/api-reference.md, docs:api-reference/labs-api.md]
+  - name: x402-payment
+    type: http
+    scheme: x402
+    description: >-
+      HTTP 402 Payment Required flow (EIP-3009 transferWithAuthorization or
+      Permit2, USDC on Base, Coinbase facilitator) fronting allow-listed Labs
+      write mutations. Payment signature submitted in Payment-Signature /
+      X-Payment / Payment header; gateway mints a short-lived (default 300s)
+      scoped service token on success.
+    sources: [docs:api-reference/x402-gateway.md]
+  - name: onchain-access-control
+    type: custom
+    description: >-
+      File-level access control is enforced via Onchain-Verified Envelope
+      Encryption (Lit Protocol retained for legacy files), not query
+      authentication.
+    sources: [docs:core-concepts/data/data-privacy-and-access.md]

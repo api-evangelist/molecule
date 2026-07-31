@@ -1,0 +1,51 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.molecule.xyz/api-reference/api-reference.md
+docs: https://docs.molecule.xyz/api-reference/
+api_style:
+  protocol: GraphQL
+  endpoint:
+    production: https://production.graphql.api.molecule.xyz/graphql
+    staging: https://staging.graphql.api.molecule.xyz/graphql
+  transport: HTTP POST with JSON body ({ query, variables, operationName })
+authentication:
+  style: API key header (x-api-key); Service Token header (X-Service-Token) for Labs writes; x402 USDC payment for agent writes.
+  see: authentication/molecule-authentication.yml
+pagination:
+  style: limit/skip offset pagination
+  params: [limit, skip]
+  sorting: [sortBy, sortOrder]
+  filtering: [filterBy]
+  notes: Data API list queries (e.g. ipnfts, ipts) accept limit, skip, sortBy, sortOrder, and a typed filterBy input.
+error_envelope:
+  graphql: Standard GraphQL top-level errors[] array alongside data.
+  mutation_result: >-
+    Labs/Tokenization mutations return a result object with isSuccess (bool),
+    message (string), and error { message } fields.
+  x402_http_status:
+    "200": Payment verified and upstream AppSync returned 2xx; body is the AppSync response verbatim.
+    "402": Payment required or verification failed.
+    "400": Path/mutation mismatch, missing query, invalid GraphQL, or unresolvable payer address.
+    "4xx/5xx": Upstream AppSync error returned as-is; settlement skipped.
+  see: errors/molecule-problem-types.yml
+idempotency:
+  supported: false
+  notes: >-
+    x402 gateway requests are NOT idempotent by default — each minted service
+    token has a unique jti claim, replaying a signed payment may be rejected by
+    the facilitator's replay protection, and a retry after settlement failure
+    can succeed twice. Agents should treat settlement failures as "payment not
+    charged yet" and re-sign. No idempotency-key header is documented.
+  source: https://docs.molecule.xyz/api-reference/x402-gateway.md
+payments:
+  model: x402 pay-per-call (HTTP 402), USDC on Base (eip155:8453), EIP-3009 / Permit2, Coinbase CDP facilitator.
+  see: https://docs.molecule.xyz/api-reference/x402-gateway.md
+rate_limiting:
+  api: Not explicitly documented for the GraphQL API.
+  mcp: Public MCP endpoint (molecule-mcp.vercel.app) is rate-limited; self-host for heavy workloads.
+versioning:
+  environments: [production, staging]
+  subgraph: Deprecated (see references/subgraph.md).
+data_access_control:
+  encryption: Onchain-Verified Envelope Encryption (Lit Protocol for legacy files).
+  see: https://docs.molecule.xyz/core-concepts/data/data-privacy-and-access.md

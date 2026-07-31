@@ -1,0 +1,41 @@
+generated: '2026-07-20'
+method: derived
+source: https://docs.molecule.xyz/api-reference/data-api.md
+notes: >-
+  Entity graph derived from the documented Molecule GraphQL Data API and
+  Tokenization API schemas. Molecule's core domain: IP-NFTs (registered legal
+  IP rights) are fractionalized into IP Tokens (IPTs), owned by Users, and
+  organized under research Labs (onchain labs / datarooms).
+entities:
+  - name: IPNFT
+    description: An Intellectual Property NFT registering legal IP rights for a research project onchain.
+    key_fields: [id, chainId, symbol, name, description, trlValue, trlRationale, organization, topic, mintedAt, tokenUri, fundingAmountValue, fundingAmountCurrency]
+    relationships:
+      - {type: belongs_to, target: User, via: owner}
+      - {type: has_one, target: ResearchLead, via: researchLead}
+      - {type: has_many, target: Agreement, via: agreements}
+      - {type: has_one, target: IPT, via: ipt}
+      - {type: belongs_to, target: Chain, via: chainId}
+  - name: IPT
+    description: An ERC-20 IP Token representing fractionalized ownership of an IP-NFT's rights.
+    key_fields: [id, symbol, totalIssued]
+    relationships:
+      - {type: belongs_to, target: IPNFT, via: ipnft}
+  - name: User
+    description: A platform user / wallet, may own IP-NFTs.
+    key_fields: [id, address]
+  - name: ResearchLead
+    description: The scientist / research lead associated with an IP-NFT project.
+    key_fields: [name, email]
+  - name: Agreement
+    description: A legal agreement document attached to an IP-NFT.
+    key_fields: [id, contentHash, mimeType, type, url]
+  - name: Chain
+    description: The blockchain network an IP-NFT is minted on.
+    key_fields: [chainId]
+  - name: Lab
+    description: An onchain lab (OCL) dataroom that stores research files, members, and activity.
+    key_fields: [oclId]
+    relationships:
+      - {type: has_many, target: File, via: files}
+      - {type: has_many, target: Member, via: members}

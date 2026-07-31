@@ -1,0 +1,20 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.molecule.xyz/
+versioning:
+  scheme: environment-separated
+  environments:
+    production: https://production.graphql.api.molecule.xyz/graphql
+    staging: https://staging.graphql.api.molecule.xyz/graphql
+  docs: https://docs.molecule.xyz/api-reference/api-reference.md
+deprecation:
+  components:
+    - name: Subgraph
+      status: deprecated
+      docs: https://docs.molecule.xyz/references/subgraph.md
+  notes: The GraphQL Subgraph reference is marked Deprecated in the docs; superseded by the Data API.
+onchain:
+  network: Base mainnet (v0.1.0 deployed from Cyfrin-audited code)
+  contracts_docs: https://docs.molecule.xyz/references/contracts.md
+status_page: null
+sla: null

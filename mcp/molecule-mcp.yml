@@ -1,0 +1,47 @@
+generated: '2026-07-20'
+method: searched
+status: published
+source: https://docs.molecule.xyz/references/mcp-tools.md
+server:
+  name: molecule
+  transport: http
+  url: https://molecule-mcp.vercel.app/mcp
+  description: >-
+    Hosted Model Context Protocol server that lets AI assistants query the
+    Molecule DeSci ecosystem (IP Tokens, prices, project activity) in natural
+    language. Streamable HTTP transport. Public endpoint is rate-limited and
+    caches upstream responses in Redis; self-hosting is documented for heavy
+    workloads. Data sources: Molecule GraphQL API, Sanity CMS (categories),
+    GeckoTerminal (price data).
+  data_sources:
+    - Molecule GraphQL API
+    - Sanity CMS
+    - GeckoTerminal
+client_config:
+  claude_desktop:
+    mcpServers:
+      molecule:
+        url: https://molecule-mcp.vercel.app/mcp
+  claude_code:
+    mcpServers:
+      molecule:
+        type: url
+        url: https://molecule-mcp.vercel.app/mcp
+tools:
+  - name: molecule-get-ipts
+    description: Retrieve Intellectual Property Tokens (IPTs) with detailed market data.
+  - name: molecule-get-project-activity
+    description: Fetch recent activity for a specified IPT.
+    parameters:
+      - {name: iptSymbol, type: string, required: true}
+  - name: molecule-get-ipt-categories
+    description: List IPT categories with aggregated statistics.
+  - name: molecule-get-project-summary
+    description: Provide a comprehensive analysis of a specific IPT.
+    parameters:
+      - {name: iptSymbol, type: string, required: true}
+  - name: molecule-get-ipt-historic-prices
+    description: Get historical OHLCV price data for an IPT for trend analysis.
+    parameters:
+      - {name: iptSymbol, type: string, required: true}
+      - {name: days, type: number, required: true}

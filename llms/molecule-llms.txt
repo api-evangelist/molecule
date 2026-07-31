@@ -1,0 +1,47 @@
+# Molecule Docs
+
+## Molecule Docs
+
+- [Overview](https://docs.molecule.xyz/introduction/readme.md): Mission & Vision of Molecule
+- [How it works](https://docs.molecule.xyz/introduction/how-it-works.md): A step-by-step walkthrough of how researchers, communities, and AI agents use Molecule to fund, tokenize, and advance scientific research
+- [Architecture](https://docs.molecule.xyz/introduction/architecture.md): How the protocol's smart contracts are structured, deployed, and composed at the implementation level
+- [Molecule Labs](https://docs.molecule.xyz/core-concepts/onchain-lab.md): The programmable onchain identity that owns, controls, and extends everything in a research project
+- [Roles & Permissions](https://docs.molecule.xyz/core-concepts/roles-and-permissions.md): How delegated access to a Lab works — role hierarchy, capability matrix, expiry, agent flag, and the onchain resolver.
+- [Module Registry](https://docs.molecule.xyz/core-concepts/module-registry.md): How Labs discover, install, and secure modular extensions through the ERC-7484 attestation registry
+- [Validator Module](https://docs.molecule.xyz/core-concepts/module-registry/validator-module.md): How Onchain Labs authenticate and authorise operations through modular, NFT-ownership-derived signature verification
+- [Fallback Modules](https://docs.molecule.xyz/core-concepts/module-registry/fallback-modules.md): Fallback modules extend Lab functionality by handling function calls that are not natively defined on the account contract, dispatched through the Solidity fallback function via selector-based
+- [Executor Modules](https://docs.molecule.xyz/core-concepts/module-registry/executor-modules.md): Executor modules are external smart contracts that can trigger transactions from a Lab's account, enabling automation, cross-protocol integrations, and programmable actions without requiring
+- [Coin-to-Company Model](https://docs.molecule.xyz/core-concepts/module-registry/rwa-equity.md): The Coin-to-Company module bridges onchain IP Token ownership with offchain shareholder rights, enabling a compliant pathway from token holder to real-world equity participant
+- [Fundraising (coming soon)](https://docs.molecule.xyz/core-concepts/module-registry/fundraising-coming-soon.md)
+- [Tokenized IPs](https://docs.molecule.xyz/core-concepts/tokenized-ips.md): How intellectual property is represented, fractionalized, and traded as onchain assets within Labs
+- [IP-NFTs](https://docs.molecule.xyz/core-concepts/tokenized-ips/ip-nfts.md): How legal IP rights are registered, minted, and transferred as non-fungible tokens onchain
+- [IPTs](https://docs.molecule.xyz/core-concepts/tokenized-ips/ipts.md): How IP-NFTs are fractionalized into tradable governance tokens that represent shared ownership of intellectual property
+- [Data](https://docs.molecule.xyz/core-concepts/data.md): How Labs store, protect, and control access to scientific research data
+- [Data Storage](https://docs.molecule.xyz/core-concepts/data/data-storage.md): How research files are stored, content-addressed, versioned, and permanently persisted across the decentralised storage stack
+- [Data Privacy & Access](https://docs.molecule.xyz/core-concepts/data/data-privacy-and-access.md): How Labs protect confidential research data through client-side encryption, onchain access verification, and a condition-gated key-release flow.
+- [Data Anchoring (DID Linking)](https://docs.molecule.xyz/core-concepts/data/data-module.md): How a Lab's offchain data identity is anchored onchain — every Lab's data room DID is bound to its OCL-ID through a dual co-attested registry entry that anyone can verify.
+- [Data API & Integration](https://docs.molecule.xyz/core-concepts/data/data-api-and-integration.md): How Lab data is indexed, aggregated, served, and consumed by the platform, AI tools, and external integrations
+- [API Overview](https://docs.molecule.xyz/api-reference/api-reference.md)
+- [Data API](https://docs.molecule.xyz/api-reference/data-api.md)
+- [Tokenization API](https://docs.molecule.xyz/api-reference/tokenization-api.md)
+- [Labs API](https://docs.molecule.xyz/api-reference/labs-api.md)
+- [x402 Gateway](https://docs.molecule.xyz/api-reference/x402-gateway.md): Pay-per-call HTTP 402 gateway that fronts write mutations on the Labs API with per-request stablecoin settlement on Base.
+- [MIRA](https://docs.molecule.xyz/ai-tooling/mira.md): Molecule Insights & Research Assistant
+- [BIOS (AI Scientist)](https://docs.molecule.xyz/ai-tooling/bios-ai-scientist.md)
+- [Scientists/Researchers](https://docs.molecule.xyz/user-guides/scientists-researchers.md): Your Path into DeSci
+- [Developers/AI Agents](https://docs.molecule.xyz/user-guides/developers-ai-agents.md): Build on Molecule: Integrate Labs, extend the protocol, and deploy autonomous research agents
+- [Investors](https://docs.molecule.xyz/user-guides/investors.md): Discover, evaluate, and invest in tokenized scientific research
+- [Contracts](https://docs.molecule.xyz/references/contracts.md)
+- [IP-NFT](https://docs.molecule.xyz/references/contracts/ip-nft.md)
+- [IPT](https://docs.molecule.xyz/references/contracts/ipt.md): The ERC-20 token that represents fractionalized ownership of an IP-NFT's intellectual property rights
+- [Tokenizer](https://docs.molecule.xyz/references/contracts/tokenizer.md)
+- [AccessResolver](https://docs.molecule.xyz/references/contracts/accessresolver.md)
+- [CrowdSale](https://docs.molecule.xyz/references/contracts/crowdsale.md)
+- [Subgraph (Deprecated)](https://docs.molecule.xyz/references/subgraph.md)
+- [MCP Tools](https://docs.molecule.xyz/references/mcp-tools.md)
+- [Labs API](https://docs.molecule.xyz/references/labs-api.md)
+- [Audits](https://docs.molecule.xyz/security/audits.md)
+- [Bug Bounty](https://docs.molecule.xyz/security/bug-bounty.md)
+- [Legal Risks](https://docs.molecule.xyz/risks/legal-risks.md): IP-NFTs and their IPTs merge two different fields of risk: traditional IP risk and all of the risks that come with experimentation using blockchain technology.
+- [Smart Contract Risks](https://docs.molecule.xyz/risks/smart-contract-risks.md)
+- [FAQs](https://docs.molecule.xyz/resources/faqs.md)

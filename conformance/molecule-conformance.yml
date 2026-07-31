@@ -1,0 +1,40 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.molecule.xyz/
+standards:
+  - id: graphql
+    conforms: true
+    evidence: All Molecule APIs (Data, Tokenization, Labs) are served over a single GraphQL endpoint.
+  - id: x402
+    conforms: true
+    evidence: x402 gateway implements the HTTP 402 Payment Required protocol (verify/serve/settle) per x402.org.
+  - id: mcp
+    conforms: true
+    evidence: Hosted Model Context Protocol server at molecule-mcp.vercel.app (Streamable HTTP transport).
+  - id: eip-3009
+    conforms: true
+    evidence: x402 payments use EIP-3009 transferWithAuthorization (and Permit2) for USDC settlement on Base.
+  - id: erc-4337
+    conforms: true
+    evidence: OnChainLab account is an ERC-4337 account-abstraction smart account (Cyfrin audit, 2026).
+  - id: erc-6551
+    conforms: true
+    evidence: OnChainLab implements ERC-6551 token-bound accounts (Cyfrin audit, 2026).
+  - id: erc-7579
+    conforms: true
+    evidence: OnChainLab is an ERC-7579 modular smart account (Cyfrin audit, 2026).
+  - id: erc-7484
+    conforms: true
+    evidence: Module Registry uses the ERC-7484 attestation registry for module discovery/security.
+  - id: erc-721
+    conforms: true
+    evidence: IP-NFTs are ERC-721 non-fungible tokens.
+  - id: erc-20
+    conforms: true
+    evidence: IP Tokens (IPTs) are ERC-20 fungible tokens fractionalizing an IP-NFT.
+  - id: oauth2
+    conforms: false
+    evidence: Authentication is API-key + service-token based, not OAuth2.
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: Errors use GraphQL error arrays and mutation result objects, not application/problem+json.

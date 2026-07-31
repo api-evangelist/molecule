@@ -1,0 +1,39 @@
+generated: '2026-07-20'
+method: searched
+source: https://docs.molecule.xyz/api-reference/x402-gateway.md
+format: graphql+http
+envelope:
+  graphql_errors: Standard GraphQL errors[] array returned alongside data.
+  mutation_result: Mutations return { isSuccess, message, error { message } }.
+problems:
+  - status: 400
+    surface: x402 gateway
+    title: Bad Request
+    detail: >-
+      Path mutation does not match the top-level GraphQL mutation field, missing
+      query, invalid GraphQL, or unresolvable payer address.
+    source_operation: docs/api-reference/x402-gateway.md
+  - status: 402
+    surface: x402 gateway
+    title: Payment Required
+    detail: >-
+      Returned as the initial challenge (with x402 payment requirements:
+      network, asset, price, payTo) and again when payment verification fails.
+    source_operation: docs/api-reference/x402-gateway.md
+  - status: 200
+    surface: x402 gateway
+    title: OK
+    detail: Payment verified and upstream AppSync returned 2xx; settlement headers merged into response.
+    source_operation: docs/api-reference/x402-gateway.md
+  - status: "4xx/5xx"
+    surface: x402 gateway (upstream AppSync)
+    title: Upstream error
+    detail: Upstream AppSync error returned as-is; settlement is skipped.
+    source_operation: docs/api-reference/x402-gateway.md
+  - status: mutation-level
+    surface: Labs / Tokenization API
+    title: Mutation failure
+    detail: >-
+      GraphQL mutations report success/failure via the result object
+      (isSuccess=false, message, error.message) rather than an HTTP error.
+    source_operation: docs/api-reference/labs-api.md

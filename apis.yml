@@ -1,22 +1,130 @@
 aid: molecule
 name: Molecule
-description: Molecule is a company surfaced as a portfolio company of speedinvest and added to the API
-  Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  Molecule is decentralized-science (DeSci) infrastructure for recording,
+  tokenizing, funding, and accelerating scientific research onchain. Backed by
+  Speedinvest, Molecule lets researchers create onchain Labs (secure research
+  datarooms), mint IP-NFTs that register legal intellectual-property rights,
+  fractionalize them into tradeable ERC-20 IP Tokens (IPTs), and raise funding
+  from a global community. Its developer platform exposes a GraphQL API — a Data
+  API for browsing IP-NFTs, IPTs, and market data; a Tokenization API for
+  minting and fractionalizing IP; and a Labs API for managing research
+  datarooms — plus an x402 pay-per-call HTTP 402 gateway for autonomous agents,
+  a hosted Model Context Protocol (MCP) server, and MIRA/BIOS AI tooling. The
+  onchain stack (ERC-4337/6551/7579 smart accounts, ERC-7484 module registry,
+  IP-NFTs) is deployed on Base and audited by Cyfrin and Pashov.
 url: https://raw.githubusercontent.com/api-evangelist/molecule/refs/heads/main/apis.yml
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://github.com/moleculeprotocol.png
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - speedinvest
-x-tier: stub
-x-tier-reason: portfolio-lead
+x-tier: profiled
+x-tier-reason: enriched-from-stub
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-20'
 tags:
 - Company
-apis: []
+- DeSci
+- Decentralized Science
+- Blockchain
+- Web3
+- GraphQL
+- Intellectual Property
+- IP-NFT
+- Tokenization
+- Life Sciences
+- Biotech
+- Research Funding
+- AI Agents
+- MCP
+- x402
+apis:
+- name: Molecule GraphQL API
+  description: >-
+    Single GraphQL endpoint serving the Data API (browse IP-NFTs, IPTs, and
+    market data), the Tokenization API (mint IP-NFTs and fractionalize into
+    IPTs), and the Labs API (manage research datarooms, files, members, and
+    activity). Authenticated with an x-api-key header; Labs write mutations also
+    require an X-Service-Token.
+  humanURL: https://docs.molecule.xyz/api-reference/api-reference.md
+  baseURL: https://production.graphql.api.molecule.xyz/graphql
+  tags:
+  - GraphQL
+  - DeSci
+  - Tokenization
+  properties:
+  - type: Documentation
+    url: https://docs.molecule.xyz/api-reference/api-reference.md
+  - type: APIReference
+    url: https://docs.molecule.xyz/api-reference/data-api.md
+  - type: Authentication
+    url: authentication/molecule-authentication.yml
+  - type: Conventions
+    url: conventions/molecule-conventions.yml
+  - type: ErrorCatalog
+    url: errors/molecule-problem-types.yml
+  - type: DataModel
+    url: data-model/molecule-data-model.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+common:
+- type: DeveloperPortal
+  url: https://docs.molecule.xyz/
+- type: Documentation
+  url: https://docs.molecule.xyz/
+- type: APIReference
+  url: https://docs.molecule.xyz/api-reference/api-reference.md
+- type: GettingStarted
+  url: https://docs.molecule.xyz/user-guides/developers-ai-agents.md
+- type: Website
+  url: https://molecule.xyz/
+- type: GitHubOrganization
+  url: https://github.com/moleculeprotocol
+- type: Support
+  url: https://docs.molecule.xyz/resources/faqs.md
+- type: Blog
+  url: https://molecule.xyz/blog
+- type: Authentication
+  url: authentication/molecule-authentication.yml
+- type: Conventions
+  url: conventions/molecule-conventions.yml
+- type: ErrorCatalog
+  url: errors/molecule-problem-types.yml
+- type: DataModel
+  url: data-model/molecule-data-model.yml
+- type: Conformance
+  url: conformance/molecule-conformance.yml
+- type: Lifecycle
+  url: lifecycle/molecule-lifecycle.yml
+- type: MCPServer
+  url: mcp/molecule-mcp.yml
+- type: LLMsTxt
+  url: llms/molecule-llms.txt
+- type: VulnerabilityDisclosure
+  url: security/molecule-vulnerability-disclosure.yml
+- type: Security
+  url: https://docs.molecule.xyz/security/bug-bounty
+- type: AgentSkill
+  url: skills/_index.yml
+x-enrichment:
+  date: '2026-07-20'
+  status: enriched
+  artifacts_added: 12
+  pass: local-v1
