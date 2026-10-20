@@ -1,0 +1,117 @@
+{
+  "endpoint": "https://molecule-mcp.vercel.app/mcp",
+  "captured": "2026-10-20",
+  "method": "initialize + tools/list (anonymous, no tool called; roadmap#992)",
+  "protocol_version": "2024-11-05",
+  "server_info": {
+    "name": "mcp-typescript server on vercel",
+    "version": "0.1.0"
+  },
+  "result": {
+    "tools": [
+      {
+        "name": "molecule-get-labs",
+        "description": "List the labs on Molecule with their verification status, Technology Readiness Level (TRL), project format and therapeutic fields, plus each lab's token when it has one: symbol, chain, holder count, price, 24h change, market cap, liquidity and 24h volume. Useful for exploring labs and tokens or summarizing Molecule ecosystem statistics.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "tokenizedOnly": {
+              "type": "boolean",
+              "description": "Only list labs that have a token. Defaults to false."
+            }
+          },
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        }
+      },
+      {
+        "name": "molecule-get-lab-activity",
+        "description": "Fetch the latest activity of a lab's data room: announcements and files added, updated or removed, newest first. Accepts the lab's slug, name or token symbol. Ideal for tracking project progress or updates for specific biotech/research initiatives.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "lab": {
+              "type": "string",
+              "minLength": 1,
+              "description": "The lab to look up: its URL slug (e.g. 'vita-fast'), its name (e.g. 'Chronic Tonsilitis') or its token symbol (e.g. 'VITARNA'). Prefer the slug when you have it."
+            },
+            "type": {
+              "type": "string",
+              "enum": [
+                "ANNOUNCEMENT",
+                "FILE"
+              ],
+              "description": "Only announcements, or only file events. Omit for both."
+            },
+            "limit": {
+              "type": "integer",
+              "exclusiveMinimum": 0,
+              "maximum": 100,
+              "description": "How many entries to return, newest first (max 100). Defaults to 20."
+            }
+          },
+          "required": [
+            "lab"
+          ],
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        }
+      },
+      {
+        "name": "molecule-get-lab-categories",
+        "description": "Retrieve the therapeutic fields labs are grouped into (e.g. Longevity, Brain Health, Women's Health) with the labs in each — including their Technology Readiness Level (TRL) and, for labs with a token, liquidity, market cap, price and 24h volume. Perfect for exploring DeSci research areas by focus.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {},
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        }
+      },
+      {
+        "name": "molecule-get-lab-summary",
+        "description": "Gets a comprehensive summary of a lab on Molecule, by its slug, name or token symbol. Combines the lab's profile (research focus, team, Technology Readiness Level, assessment score, funding, therapeutic fields and links), its token with market data and 14-day price history when it has one, and its recent data room activity into a single response. Includes a text template that can be used to format the summary for presentation. Useful for getting a complete overview of a biotech/DeSci project.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "lab": {
+              "type": "string",
+              "minLength": 1,
+              "description": "The lab to look up: its URL slug (e.g. 'vita-fast'), its name (e.g. 'Chronic Tonsilitis') or its token symbol (e.g. 'VITARNA'). Prefer the slug when you have it."
+            }
+          },
+          "required": [
+            "lab"
+          ],
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        }
+      },
+      {
+        "name": "molecule-get-token-price-history",
+        "description": "Gets the historic prices of a lab's token on Molecule, by the lab's slug, name or token symbol. Returns daily OHLCV data in USD from the token's most traded market.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "lab": {
+              "type": "string",
+              "minLength": 1,
+              "description": "The lab to look up: its URL slug (e.g. 'vita-fast'), its name (e.g. 'Chronic Tonsilitis') or its token symbol (e.g. 'VITARNA'). Prefer the slug when you have it."
+            },
+            "days": {
+              "type": "integer",
+              "exclusiveMinimum": 0,
+              "maximum": 90,
+              "description": "The number of days to look back for historical price data (max 90)"
+            }
+          },
+          "required": [
+            "lab",
+            "days"
+          ],
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        }
+      }
+    ]
+  }
+}
