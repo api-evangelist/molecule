@@ -25,31 +25,29 @@ client_config:
         type: url
         url: https://molecule-mcp.vercel.app/mcp
 tools:
-- name: molecule-get-ipts
-  description: Retrieve Intellectual Property Tokens (IPTs) with detailed market data.
-- name: molecule-get-project-activity
-  description: Fetch recent activity for a specified IPT.
-  parameters:
-  - name: iptSymbol
-    type: string
-    required: true
-- name: molecule-get-ipt-categories
-  description: List IPT categories with aggregated statistics.
-- name: molecule-get-project-summary
-  description: Provide a comprehensive analysis of a specific IPT.
-  parameters:
-  - name: iptSymbol
-    type: string
-    required: true
-- name: molecule-get-ipt-historic-prices
-  description: Get historical OHLCV price data for an IPT for trend analysis.
-  parameters:
-  - name: iptSymbol
-    type: string
-    required: true
-  - name: days
-    type: number
-    required: true
+- name: molecule-get-labs
+  description: 'List the labs on Molecule with their verification status, Technology Readiness Level (TRL),
+    project format and therapeutic fields, plus each lab''s token when it has one: symbol, chain, holder
+    count, price, 24h change, market cap, liquidity and 24h volume. Useful for exploring labs and tokens
+    or summarizing Molecule ecosystem statistics.'
+- name: molecule-get-lab-activity
+  description: 'Fetch the latest activity of a lab''s data room: announcements and files added, updated
+    or removed, newest first. Accepts the lab''s slug, name or token symbol. Ideal for tracking project
+    progress or updates for specific biotech/research initiatives.'
+- name: molecule-get-lab-categories
+  description: Retrieve the therapeutic fields labs are grouped into (e.g. Longevity, Brain Health, Women's
+    Health) with the labs in each — including their Technology Readiness Level (TRL) and, for labs with
+    a token, liquidity, market cap, price and 24h volume. Perfect for exploring DeSci research areas by
+    focus.
+- name: molecule-get-lab-summary
+  description: Gets a comprehensive summary of a lab on Molecule, by its slug, name or token symbol. Combines
+    the lab's profile (research focus, team, Technology Readiness Level, assessment score, funding, therapeutic
+    fields and links), its token with market data and 14-day price history when it has one, and its recent
+    data room activity into a single response. Includes a text template that can be used to format the
+    summary for presentation. Useful for getting a complete overview of a biotech/DeSci project.
+- name: molecule-get-token-price-history
+  description: Gets the historic prices of a lab's token on Molecule, by the lab's slug, name or token
+    symbol. Returns daily OHLCV data in USD from the token's most traded market.
 deployment:
   mode: remote
   endpoint: https://molecule-mcp.vercel.app/mcp
@@ -83,3 +81,4 @@ tool_quality:
   scored: false
   note: Facts from the saved tools/list capture (mcp_tool_quality.py); recorded, not scored. Checks learned
     from Glimind's agent-readiness audit.
+tools_count: 5
