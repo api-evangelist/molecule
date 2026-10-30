@@ -64,6 +64,99 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Molecule is a company surfaced as a portfolio company of speedinvest and added to the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+Molecule is decentralized-science (DeSci) infrastructure for recording, tokenizing, funding, and accelerating scientific research onchain. Backed by Speedinvest, Molecule lets researchers create onchain Labs (secure research datarooms), mint IP-NFTs that register legal intellectual-property rights, fractionalize them into tradeable ERC-20 IP Tokens (IPTs), and raise funding from a global community. Its developer platform exposes a GraphQL API — a Data API for browsing IP-NFTs, IPTs, and market data; a Tokenization API for minting and fractionalizing IP; and a Labs API for managing research datarooms — plus an x402 pay-per-call HTTP 402 gateway for autonomous agents, a hosted Model Context Protocol (MCP) server, and MIRA/BIOS AI tooling. The onchain stack (ERC-4337/6551/7579 smart accounts, ERC-7484 module registry, IP-NFTs) is deployed on Base and audited by Cyfrin and Pashov.
 
-Backed by: speedinvest
+**Areas:** Company · DeSci · Decentralized Science · Blockchain · Web3 · GraphQL · Intellectual Property · IP-NFT · Tokenization · Life Sciences · Biotechnology · Research Funding
+
+## Molecule on APIs.io
+
+Everything profiled for Molecule is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/molecule/](https://apis.io/providers/molecule/)** — or go straight to one of the APIs or properties below.
+
+### APIs (1)
+
+- [Molecule GraphQL API](https://apis.io/apis/molecule/molecule-graphql-api/) — Single GraphQL endpoint serving the Data API (browse IP-NFTs, IPTs, and market data), the Tokenization API (mint IP-NFTs and fractionalize into IPTs), and…
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [molecule](https://apis.io/servers/molecule/molecule/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Molecule Authentication](https://apis.io/security/molecule/molecule-authentication/)
+- [Molecule Vulnerability Disclosure](https://apis.io/security/molecule/molecule-vulnerability-disclosure/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://molecule.xyz/)
+- [Documentation](https://docs.molecule.xyz/)
+- [Getting started](https://docs.molecule.xyz/user-guides/developers-ai-agents.md)
+- [API reference](https://docs.molecule.xyz/api-reference/api-reference.md)
+- [Support](https://docs.molecule.xyz/resources/faqs.md)
+- [Blog](https://molecule.xyz/blog)
+- [Security](https://docs.molecule.xyz/security/bug-bounty)
+- [GitHub](https://github.com/moleculeprotocol)
+
+## API Evangelist rating
+
+**Kin Score 22.7** — emerging · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 75.0 |
+| Contract quality | 0.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 2.6 |
+| Developer ergonomics | 58.9 |
+| Access clarity | 0.0 |
+
+**Agent readiness 14.9** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | verified |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | documented (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | na |
+
+**Regulatory alignment 18.0** — Health
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/molecule/](https://apis.io/providers/molecule/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Molecule: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/molecule/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
